@@ -1,0 +1,13 @@
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.exe
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.deps.json
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.runtimeconfig.json
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.runtimeconfig.dev.json
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.dll
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\bin\Debug\netcoreapp3.1\MinivillesConsole.pdb
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.csprojAssemblyReference.cache
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.AssemblyInfoInputs.cache
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.AssemblyInfo.cs
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.csproj.CoreCompileInputs.cache
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.dll
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.pdb
+C:\Users\tlamz\Desktop\Cnam_Cours_CSharp\MinivillesConsole\MinivillesConsole\obj\Debug\netcoreapp3.1\MinivillesConsole.genruntimeconfig.cache
