@@ -23,29 +23,10 @@ namespace MiniVilles
             //Console.ReadLine();
         }
 
-        public Dices(int nbFaces)
-        {
-            NbFaces = nbFaces;
-
-            for (int i = 0; i < NbFaces; i++)
-            {
-                faces.Add(1 + i);
-            }
-
-            //foreach (int i in faces)
-            //    Console.WriteLine(i);
-            //Console.ReadLine();
-        }
-
         public void Lancer()
         {
             Random ran = new Random();
             face = ran.Next(1, NbFaces + 1);
-        }
-
-        public void afficherFace()
-        {
-            Console.WriteLine("La face actuelle : {0}", face);
         }
     }
 }

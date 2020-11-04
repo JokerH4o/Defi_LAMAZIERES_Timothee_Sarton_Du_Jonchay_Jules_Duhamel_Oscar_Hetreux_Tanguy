@@ -67,9 +67,6 @@ namespace MiniVilles
                     break;
                 case 2:
                     playerEnnemi.pMoney++;
-
-                    break;
-                case 3:
                     break;
                 case 4:
                     playerEnnemi.pMoney++;

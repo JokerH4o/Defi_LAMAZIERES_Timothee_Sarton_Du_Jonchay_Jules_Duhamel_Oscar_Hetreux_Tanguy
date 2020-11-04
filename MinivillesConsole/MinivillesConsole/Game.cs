@@ -43,7 +43,7 @@ namespace MiniVilles
             {
                 for (int i = 0; i < playerList.Count; i++)//chaque joueurs font leurs tours à la suite en lancant un dé (joueur en question = joueur lancant le dé)
                 {
-                    if (i == 0)
+                    if (i == 0)//[Tour du joueur]
                     {
                         Console.Clear();
                         DisplayPlayerInfo();
@@ -155,7 +155,7 @@ namespace MiniVilles
                             }
                         }
                     }
-                    else
+                    else//[Tour des ia]
                     {
                         playerList[i].de.Lancer();// le joueur en question lance
                         playerList[i].Pioche(piles.cartes.Pop());//le joueur en question pioche une carte
