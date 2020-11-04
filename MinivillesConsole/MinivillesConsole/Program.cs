@@ -24,12 +24,13 @@ namespace MiniVilles
                 Console.Write("Voici les vainqueurs : ");
                 foreach (Player player in g.playerList)
                 {
-                    if (player.pMoney > 19)
+                    if (player.pMoney >= 20)
                     {
-                        Console.Write(player.pName);
+                        Console.Write(player.pName +", avec "+ player.pMoney+"$; ");
                     }
                 }
-                Console.WriteLine("Voulez-vous faire une autre partie ? 1 - Oui    2 - Non");
+
+                Console.WriteLine("\nVoulez-vous faire une autre partie ? 1 - Oui    2 - Non");
                 if (Console.ReadLine() == ("2"))
                 {
                     nextGame = false;
