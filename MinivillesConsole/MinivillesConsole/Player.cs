@@ -37,7 +37,7 @@ namespace MiniVilles
                     pMoney++;
                     break;
                 case 2:
-                    pMoney++;
+                    pMoney+=2;
                     break;
                 case 3:
                     pMoney += 2;
