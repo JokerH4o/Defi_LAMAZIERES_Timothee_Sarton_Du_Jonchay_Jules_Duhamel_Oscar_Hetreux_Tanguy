@@ -18,7 +18,7 @@ namespace MiniVilles
                 Console.WriteLine("Contre combien de bots voulez-vous jouer ?");
                 nbPlayer = int.Parse(Console.ReadLine()) + 1;
                 Game g = new Game(nbPlayer, 6);
-                Console.WriteLine("Vous êtes le joueur 1");
+                Console.WriteLine("Vous êtes le joueur : {0}", g.playerList[0].pName);
                 g.Tour();
                 Console.Clear();
                 Console.Write("Voici les vainqueurs : ");

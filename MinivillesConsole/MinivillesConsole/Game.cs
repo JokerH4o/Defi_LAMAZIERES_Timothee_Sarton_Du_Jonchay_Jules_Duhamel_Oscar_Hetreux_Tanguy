@@ -9,7 +9,7 @@ namespace MiniVilles
     class Game
     {
         private int nbCartes;
-        public string pName = "joris";
+        public string pName = "";
         public Piles piles;
         public List<Player> playerList = new List<Player>();
 
@@ -18,10 +18,15 @@ namespace MiniVilles
 
         public Game(int nbrJoueurs, int n)
         {
+            Console.Write("Votre nom ? : ");
+            string playerName = Console.ReadLine();
             this.nbCartes = n;
             for (int i = 1; i < nbrJoueurs + 1; i++)
             {
-                pName = (Convert.ToString(i));
+                if(i==1)
+                    pName = playerName;
+                else
+                    pName = (Convert.ToString(i));
                 playerList.Add(new Player(pName));
             }
             piles = new Piles(nbCartes);
@@ -41,12 +46,15 @@ namespace MiniVilles
                     if (i == 0)
                     {
                         Console.Clear();
-                        DisplayPlayerInfo(playerList[i]);
+                        DisplayPlayerInfo();
                         Console.WriteLine("\nVoici votre ville :");
                         foreach (Cards card in playerList[i].pVille)
                         {
                             Console.WriteLine("┌───");
-                            Console.WriteLine("│ {0} - activation nbr : {1}", card.CardNameEffect, card.ActivationNbr);
+                            Console.Write("│ ");
+                            Console.ForegroundColor = card.Color;
+                            Console.WriteLine("{0} - activation nbr : {1}", card.CardNameEffect, card.ActivationNbr);
+                            Console.ResetColor();
                             Console.WriteLine("└───");
                             Console.WriteLine("");
 
@@ -59,14 +67,14 @@ namespace MiniVilles
                         playerList[i].de.Lancer();// le joueur en question lance
                         playerList[i].Pioche(piles.cartes.Pop());//le joueur en question pioche une carte
 
-                        DisplayLancerDice(playerList[i]);//afficher le lancement de dé
+                        DisplayLancerDice();//afficher le lancement de dé
                         Console.Clear();
 
                         foreach (Cards card in playerList[i].pVille)
                         {
                             if (card.ActivationNbr == playerList[i].de.face)//si les cartes de la ville du joueur en question correspondent a la face du dé
                             {
-                                playerList[i].Effets(card.ActivationNbr);
+                                playerList[i].Effets(card.RefCards);
                             }
                         }
                         
@@ -80,7 +88,7 @@ namespace MiniVilles
                                 {
                                     if (card.ActivationNbr == Enemie.de.face)
                                     {
-                                        playerList[i].EffetsRougeBleu(card.ActivationNbr, Enemie);
+                                        playerList[i].EffetsRougeBleu(card.RefCards, Enemie);
                                     }
                                 }
                                 
@@ -94,15 +102,19 @@ namespace MiniVilles
                         {
                             int count = 0;
                             Console.Clear();
-                            DisplayPlayerInfo(playerList[i]);
+                            DisplayPlayerInfo();
                             Console.WriteLine("\nVoici votre main :");
                             foreach (Cards card in playerList[i].pMain)
                             {
                                 count += 1;
                                 Console.WriteLine("  ┌───");
-                                Console.WriteLine("{2} │ {0} - {1}$", card.CardNameEffect, card.Cost,count);
+                                Console.Write("{0} │ ", count);
+                                Console.ForegroundColor = card.Color;
+                                Console.WriteLine(" {0} - activation nbr :{2} - {1}$", card.CardNameEffect, card.Cost, card.ActivationNbr);
+                                Console.ResetColor();
                                 Console.WriteLine("  └───");
                                 Console.WriteLine("");
+
 
                             }
                             Console.WriteLine("");
@@ -150,31 +162,28 @@ namespace MiniVilles
 
                         //[appliquer le lancement du dé]
 
-                        if (playerList[i].pVille.Contains(new Cards(playerList[i].de.face)))
+                        
+                        foreach (Cards card in playerList[i].pVille)
                         {
-                            foreach (Cards card in playerList[i].pVille)
+                            if (card.ActivationNbr == playerList[i].de.face)//si les cartes de la ville du joueur en question correspondent a la face du dé
                             {
-                                if (card.RefCards == playerList[i].de.face)//si les cartes de la ville du joueur en question correspondent a la face du dé
-                                {
-                                    playerList[i].Effets(card.RefCards);
-                                }
+                                playerList[i].Effets(card.RefCards);
                             }
                         }
+                        
                         foreach (Player Enemie in playerList)
                         {
                             if (Enemie == playerList[i]) { }
                             else//Les joueurs autres que celui en question
                             {
-                                if (Enemie.pVille.Contains(new Cards(playerList[i].de.face)))
+                                foreach (Cards card in Enemie.pVille)
                                 {
-                                    foreach (Cards card in Enemie.pVille)
+                                    if (card.ActivationNbr == Enemie.de.face)
                                     {
-                                        if (card.RefCards == Enemie.de.face)
-                                        {
-                                            playerList[i].EffetsRougeBleu(card.RefCards, Enemie);
-                                        }
+                                        playerList[i].EffetsRougeBleu(card.RefCards, Enemie);
                                     }
                                 }
+                                
                             }
                         }
 
@@ -223,9 +232,9 @@ namespace MiniVilles
             }
         }
 
-        private void DisplayLancerDice(Player player)
+        private void DisplayLancerDice()
         {
-            DisplayPlayerInfo(player);
+            DisplayPlayerInfo();
             Console.Write("\nVous lancez votre dé");
             Thread.Sleep(500);
             Console.Write(".");
@@ -233,33 +242,66 @@ namespace MiniVilles
             Console.Write(".");
             Thread.Sleep(500);
             Console.WriteLine(".");
-            DisplayDice(player);
+            DisplayDice();
         }
 
-        private void DisplayDice(Player player)
+        private void DisplayDice()
         {
             Console.WriteLine("┌───┐");
-            Console.WriteLine("│ {0} │", player.de.face);
+            Console.WriteLine("│ {0} │", playerList[0].de.face);
             Console.WriteLine("└───┘");
             Thread.Sleep(1000);
             Console.ReadLine();
         }
 
-        private void DisplayPlayerInfo(Player player)
+        private void DisplayPlayerInfo()
         {
-            if (player.pMoney >= 10)
+            if (playerList[0].pMoney >= 10)
             {
-                Console.WriteLine("                     │");
-                Console.WriteLine("your money :{0}$       │",player.pMoney);
-                Console.WriteLine("─────────────────────┘");
+                Console.Write("                     │          │   ");
+                foreach(Player player in playerList)
+                {
+                    if(player == playerList[0]) { }
+                    else
+                    {
+                        Console.Write("j{0}:   ", player.pName);
+                    }
+                }
+                Console.Write("\nyour money :{0}$      │          │    ", playerList[0].pMoney);
+                foreach (Player player in playerList)
+                {
+                    if (player == playerList[0]) { }
+                    else
+                    {
+                        Console.Write("{0}    ", player.pMoney);
+                    }
+                }
+                Console.WriteLine("\n─────────────────────┘          └─────────────────────────────────────────────────────────────────────────────────────");
             }
             else
             {
-                Console.WriteLine("                       │");
-                Console.WriteLine("your money :{0}$         │", player.pMoney);
-                Console.WriteLine("───────────────────────┘");
+                Console.Write("                       │          │   ");
+                foreach (Player player in playerList)
+                {
+                    if (player == playerList[0]) { }
+                    else
+                    {
+                        Console.Write("j{0}:   ", player.pName);
+                    }
+                }
+                Console.Write("\nyour money :{0}$         │          │     ", playerList[0].pMoney);
+                foreach (Player player in playerList)
+                {
+                    if (player == playerList[0]) { }
+                    else
+                    {
+                        Console.Write("{0}    ", player.pMoney);
+                    }
+                }
+                Console.WriteLine("\n───────────────────────┘          └─────────────────────────────────────────────────────────────────────────────────────");
 
             }
+
 
         }
 

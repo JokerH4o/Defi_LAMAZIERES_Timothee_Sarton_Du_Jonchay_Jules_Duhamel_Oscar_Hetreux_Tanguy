@@ -9,9 +9,9 @@ namespace MiniVilles
         public int Cost;
         public string CardNameEffect;
         public int ActivationNbr;
-        public string Color;
+        public System.ConsoleColor Color;
         public int RefCards;
-
+        
 
         public Cards(int refcard)
         {
@@ -48,7 +48,7 @@ namespace MiniVilles
         public void ChampsDeBlé()
         {
             ActivationNbr = 1;
-            Color = "bleu";
+            Color = ConsoleColor.Blue;
             CardNameEffect = "Champs de blé : Recevez 1 pièce";
             Cost = 1;
 
@@ -56,49 +56,49 @@ namespace MiniVilles
         public void Ferme()
         {
             ActivationNbr = 1;
-            Color = "bleu";
+            Color = ConsoleColor.Blue;
             CardNameEffect = "Ferme : Recevez 1 pièce";
             Cost = 2;
         }
         public void Boulangerie()
         {
             ActivationNbr = 2;
-            Color = "Vert";
+            Color = ConsoleColor.Green;
             CardNameEffect = "Boulangerie : Recevez 2 pièces";
             Cost = 1;
         }
         public void Café()
         {
             ActivationNbr = 3;
-            Color = "blue";
+            Color = ConsoleColor.Red;
             CardNameEffect = "Café : Recevez 1 pièce du joueur qui a lancé le dé";
             Cost = 2;
         }
         public void Superette()
         {
             ActivationNbr = 4;
-            Color = "Vert";
+            Color = ConsoleColor.Green;
             CardNameEffect = "Superette : Recevez 3 pièces";
             Cost = 2;
         }
         public void Forêt()
         {
             ActivationNbr = 5;
-            Color = "blue";
+            Color = ConsoleColor.Blue;
             CardNameEffect = "Forêt : Recevez 1 pièce";
             Cost = 2;
         }
         public void Restaurant()
         {
             ActivationNbr = 5;
-            Color = "blue";
+            Color = ConsoleColor.Red;
             CardNameEffect = "Restaurant : Recevez 2 pièces du joueur qui a lancé le dé ";
             Cost = 4;
         }
         public void Stade()
         {
             ActivationNbr = 6;
-            Color = "blue";
+            Color = ConsoleColor.Blue;
             CardNameEffect = "Stade : Recevez 4 pièce";
             Cost = 6;
         }

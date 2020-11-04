@@ -37,7 +37,7 @@ namespace MiniVilles
                     pMoney++;
                     break;
                 case 2:
-                    pMoney+=2;
+                    pMoney++;
                     break;
                 case 3:
                     pMoney += 2;
@@ -67,9 +67,9 @@ namespace MiniVilles
                     break;
                 case 2:
                     playerEnnemi.pMoney++;
+
                     break;
                 case 3:
-                    pMoney += 2;
                     break;
                 case 4:
                     playerEnnemi.pMoney++;
